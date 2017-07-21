@@ -1,0 +1,14 @@
+avey=rep(0,5)sdy=rep(0,5)
+avey[1]=0.03sdy[1]=0.055
+avey[2]=0.04sdy[2]=0.079
+avey[3]=0.05sdy[3]=0.106
+avey[4]=0.06sdy[4]=0.135       avey[5]=0.069sdy[5]=0.158
+mxyears=50mxmonths=mxyears*12
+for (j in 1: 5){avem=avey[j]/12sdm=sdy[j]/sqrt(12)
+gavem=avem-1/2*(sdm)^2
+meanlog=gavemstdlog=sdm
+xpassw=matrix(0, mxmonths, 5)#xpassw=matrix(0, mxmonths, 8)
+for (i in 1: mxmonths) 
+{xpassw[i,1]=jxpassw[i,2]=ixpassw[i,3]=qlnorm(0.05, meanlog*i, stdlog*sqrt(i))xpassw[i,4]=qlnorm(0.50, meanlog*i, stdlog*sqrt(i))xpassw[i,5]=qlnorm(0.95, meanlog*i, stdlog*sqrt(i))#xpassw[i,4]=log(xpassw[i,3])/i#xpassw[i,5]=qlnorm(0.50, meanlog*i, stdlog*sqrt(i))#xpassw[i,6]=log(xpassw[i,5])/i#xpassw[i,7]=qlnorm(0.95, meanlog*i, stdlog*sqrt(i))#xpassw[i,8]=log(xpassw[i,7])/i}if (j==1) xpass=xpasswif (j >1) xpass=cbind(xpass,xpassw)
+}
+write.table(xpass,"xsample5.txt")
